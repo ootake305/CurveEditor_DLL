@@ -1,0 +1,2 @@
+# CurveEditor_DLL
+CurveEditorのDLL開発用リポジトリです
