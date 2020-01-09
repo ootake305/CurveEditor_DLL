@@ -1,2 +1,2 @@
 # CurveEditor_DLL
-CurveEditorのDLL開発用リポジトリです
+CurveEditorのLibrary開発用リポジトリです
