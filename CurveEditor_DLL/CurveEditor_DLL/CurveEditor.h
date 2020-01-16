@@ -3,14 +3,18 @@
 #include<vector>
 #include <string>
 
-
+#ifdef CURVEEDITOR_DLL_EXPORTS
+#define CURVEEDITOR_DLL __declspec(dllexport)
+#else
+#define CURVEEDITOR_DLL __declspec(dllimport)
+#endif
 namespace CurveEditor
 {
 	 //CSVからグラフデータを読み込み、保存やデータを読み込むクラス
-	 class BezierPointList
+	 class CURVEEDITOR_DLL BezierPointList
 	 {
 	 public:
-		 struct Vec2
+		 struct CURVEEDITOR_DLL Vec2
 		 {
 			 double x;
 			 double y;
@@ -26,7 +30,7 @@ namespace CurveEditor
 			 }
 		 };
 		 //3次ベジェ曲線に必要な点
-		 struct BezierPoint
+		 struct CURVEEDITOR_DLL BezierPoint
 		 {
 			 Vec2 startPoint;     //開始点
 			 Vec2 controlPoint1;  //制御点1
@@ -52,16 +56,16 @@ namespace CurveEditor
 		 //CSVからグラフデータを読み込む
 		 // @param Actor　読み込むCSVのパス
 		 // @return  difference 誤差の許容値
-		 bool ReadBezierPointList(std::string CSVpath);
+		    bool ReadBezierPointList(std::string CSVpath);
 
 		 // グラフのXからYを求める
 		 // @param x　時間0～1
 
-		 double EvaluateY(double x);
+		   double EvaluateY(double x);
 
 		 //グラフデータに異常はないか？
 		 // @return  true なら正常
-		 bool DateErrorCheck();
+		   bool DateErrorCheck();
 	 private:
 		 //方程式を求める時に使う
 		  double Ax;
